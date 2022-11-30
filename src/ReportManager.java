@@ -9,7 +9,10 @@ public class ReportManager {
                 monthlyReport.loadFile(i, "resources/m.20210" + i + ".csv");
             }
             System.out.println("Месячные отчёты считаны.");
-
+            checker.dataSumExpenseMonth();
+            checker.dataSumInComeMonth();
+            checker.dataSumInComeOnMonth();
+            checker.dataSumExpenseOnMonth();
         }
     }
 
@@ -19,18 +22,14 @@ public class ReportManager {
                 yearlyReport.loadFile(i, "resources/y." + i + ".csv");
             }
             System.out.println("Годовой отчёт считан.");
-
+            checker.dataYearExpense();
+            checker.dataYearInCome();
         }
     }
 
     public void selectChecker() {
         if (checker.checkReportMonth()) {
             if (checker.checkReportYear()) {
-
-                checker.dataYearExpense();
-                checker.dataYearInCome();
-                checker.dataSumExpenseMonth();
-                checker.dataSumInComeMonth();
 
                 Checker checker = new Checker(monthlyReport, yearlyReport);
                 checker.check();
