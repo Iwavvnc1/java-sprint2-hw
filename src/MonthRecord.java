@@ -1,11 +1,11 @@
-public class MonthSave {
+public class MonthRecord {
     String itemName;
     boolean isExpense;
     int quantity;
     int sumOfOne;
     Integer month;
 
-    public MonthSave(String itemName, boolean isExpense, int quantity, int sumOfOne, Integer month) {
+    public MonthRecord(String itemName, boolean isExpense, int quantity, int sumOfOne, Integer month) {
         this.itemName = itemName;
         this.isExpense = isExpense;
         this.quantity = quantity;

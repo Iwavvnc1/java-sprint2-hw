@@ -2,9 +2,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class YearlyReport {
-    public ArrayList<YearSave> yearSaves = new ArrayList<>();
+
+    public ArrayList<YearRecord> yearSaves = new ArrayList<>();
+    public HashMap<Integer, Integer> expenseYear = new HashMap<>();
+    public HashMap<Integer, Integer> inComeYear = new HashMap<>();
 
     public void loadFile(Integer year, String path) {
         String content = readFileContents(path);
@@ -17,7 +21,7 @@ public class YearlyReport {
                 int month = Integer.parseInt(parts[0]);
                 int amount = Integer.parseInt(parts[1]);
                 boolean isExpense = Boolean.parseBoolean(parts[2]);
-                YearSave yearSave = new YearSave(month, amount, isExpense, year);
+                YearRecord yearSave = new YearRecord(month, amount, isExpense, year);
                 yearSaves.add(yearSave);
             }
         }
@@ -30,4 +34,5 @@ public class YearlyReport {
             return null;
         }
     }
+
 }
