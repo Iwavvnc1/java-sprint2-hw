@@ -3,7 +3,6 @@ public class YearRecord {
     int amount;
     boolean isExpense;
     Integer year;
-
     public YearRecord(int month, int amount, boolean isExpense, Integer year) {
         this.month = month;
         this.amount = amount;
