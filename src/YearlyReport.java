@@ -7,9 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public class YearlyReport {
-    public ArrayList<YearRecord> yearSaves = new ArrayList<>();
-    public HashMap<Integer, Integer> expenseYear = new HashMap<>();
-    public HashMap<Integer, Integer> inComeYear = new HashMap<>();
+    public static ArrayList<YearRecord> yearSaves = new ArrayList<>();
+    public static HashMap<Integer, Integer> expenseYear = new HashMap<>();
+    public static HashMap<Integer, Integer> inComeYear = new HashMap<>();
 
     public void loadFile(Integer year, String path) {
         List<String> lines = readFileContents(path);

@@ -1,44 +1,39 @@
 import java.util.HashMap;
 public class Checker {
-    public MonthlyReport monthlyReport;
-    public YearlyReport yearlyReport;
-    public Checker(MonthlyReport monthlyReport, YearlyReport yearlyReport) {
-        this.monthlyReport = monthlyReport;
-        this.yearlyReport = yearlyReport;
-    }
+
     public void check() {
         int i = 0;
-        for (Integer sum : monthlyReport.sumExpenseOnMonth.keySet()) {
-            if (monthlyReport.sumExpenseOnMonth.get(sum).equals(yearlyReport.expenseYear.get(sum))) {
+        for (Integer sum : MonthlyReport.sumExpenseOnMonth.keySet()) {
+            if (MonthlyReport.sumExpenseOnMonth.get(sum).equals(YearlyReport.expenseYear.get(sum))) {
                 i++;
             } else {
                 System.out.println("Отчёт по расходам за " + sum + " месяц не сошёлся.");
             }
         }
-            if (i > (monthlyReport.sumExpenseOnMonth.size() - 1)) {
+            if (i > (MonthlyReport.sumExpenseOnMonth.size() - 1)) {
                 System.out.println("Отчёты по расходам сошлись.");
             }
          i = 0;
-        for (Integer sum : monthlyReport.sumInComeOnMonth.keySet()) {
-            if (monthlyReport.sumInComeOnMonth.get(sum).equals(yearlyReport.inComeYear.get(sum))) {
+        for (Integer sum : MonthlyReport.sumInComeOnMonth.keySet()) {
+            if (MonthlyReport.sumInComeOnMonth.get(sum).equals(YearlyReport.inComeYear.get(sum))) {
                 i++;
             } else {
                 System.out.println("Отчёт по доходам за " + sum + " месяц не сошёлся.");
             }
         }
-        if (i > (monthlyReport.sumInComeOnMonth.size() - 1)) {
+        if (i > (MonthlyReport.sumInComeOnMonth.size() - 1)) {
             System.out.println("Отчёты до доходам сошлись.");
         }
     }
     public void checkInformMonth() {
-        for (Integer sum : monthlyReport.sumInComeMonth.keySet()) {
+        for (Integer sum : MonthlyReport.sumInComeMonth.keySet()) {
             int inCome = 0;
             String nameInCome = null;
             int expense = 0;
             String nameExpense = null;
             System.out.println("За " + sum + " месяц:");
-            HashMap<String, Integer> nameToSumInCome = monthlyReport.sumInComeMonth.get(sum);
-            HashMap<String, Integer> nameToSumExpanse = monthlyReport.sumExpenseMonth.get(sum);
+            HashMap<String, Integer> nameToSumInCome = MonthlyReport.sumInComeMonth.get(sum);
+            HashMap<String, Integer> nameToSumExpanse = MonthlyReport.sumExpenseMonth.get(sum);
             for (String name : nameToSumInCome.keySet()) {
                 if (inCome < nameToSumInCome.get(name)) {
                     inCome = nameToSumInCome.get(name);
@@ -59,14 +54,14 @@ public class Checker {
         int inCome;
         int sumExpense = 0;
         int sumInCome = 0;
-        System.out.println("За " + yearlyReport.yearSaves.get(0).year + " год прибыль составила:");
-        for (Integer sum : yearlyReport.expenseYear.keySet()) {
-            inCome = yearlyReport.inComeYear.get(sum) - yearlyReport.expenseYear.get(sum);
-            sumExpense += yearlyReport.expenseYear.get(sum);
-            sumInCome += yearlyReport.inComeYear.get(sum);
+        System.out.println("За " + YearlyReport.yearSaves.get(0).year + " год прибыль составила:");
+        for (Integer sum : YearlyReport.expenseYear.keySet()) {
+            inCome = YearlyReport.inComeYear.get(sum) - YearlyReport.expenseYear.get(sum);
+            sumExpense += YearlyReport.expenseYear.get(sum);
+            sumInCome += YearlyReport.inComeYear.get(sum);
             System.out.println("за " + sum + " месяц - " + inCome + ".");
         }
-        System.out.println("Средний расход за все месяцы в году составил: " + (sumExpense / yearlyReport.expenseYear.size()) + ".");
-        System.out.println("Средний доход за все месяцы в году составил: " + (sumInCome / yearlyReport.inComeYear.size()) + ".");
+        System.out.println("Средний расход за все месяцы в году составил: " + (sumExpense / YearlyReport.expenseYear.size()) + ".");
+        System.out.println("Средний доход за все месяцы в году составил: " + (sumInCome / YearlyReport.inComeYear.size()) + ".");
     }
 }

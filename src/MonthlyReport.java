@@ -7,11 +7,11 @@ import java.util.HashMap;
 import java.util.List;
 
 public class MonthlyReport {
-    public ArrayList<MonthRecord> monthsSaves = new ArrayList<>();
-    public HashMap<Integer, Integer> sumExpenseOnMonth = new HashMap<>();
-    public HashMap<Integer, Integer> sumInComeOnMonth = new HashMap<>();
-    public HashMap<Integer, HashMap<String, Integer>> sumExpenseMonth = new HashMap<>();
-    public HashMap<Integer, HashMap<String, Integer>> sumInComeMonth = new HashMap<>();
+    public static ArrayList<MonthRecord> monthsSaves = new ArrayList<>();
+    public static HashMap<Integer, Integer> sumExpenseOnMonth = new HashMap<>();
+    public static HashMap<Integer, Integer> sumInComeOnMonth = new HashMap<>();
+    public static HashMap<Integer, HashMap<String, Integer>> sumExpenseMonth = new HashMap<>();
+    public static HashMap<Integer, HashMap<String, Integer>> sumInComeMonth = new HashMap<>();
     public void loadFile(Integer month, String path) {
         List<String> lines = readFileContents(path);
         if (lines != null) {
